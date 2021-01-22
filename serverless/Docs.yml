@@ -1,0 +1,12 @@
+swagger:
+  handler: common/swagger/SwaggerHandler.handler
+  description: Documentatión de Swagger
+  tags:
+    ENTORNO: DESARROLLO
+    PROYECTO: RETO
+    DOMINIO: INDRA
+    RESPONSABLE: JUNIOR LINARES GARCIA
+    ESTADO_OPERACION: PROYECTO
+  events:
+    - http: ANY docs/
+    - http: ANY docs/{proxy+}

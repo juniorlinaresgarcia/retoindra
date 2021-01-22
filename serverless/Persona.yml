@@ -1,0 +1,78 @@
+getPeople:
+  handler: controllers/PersonaController.listar
+  description: Lista las personas del api SWAPI
+  tags:
+    ENTORNO: DESARROLLO
+    PROYECTO: RETO
+    DOMINIO: INDRA
+    RESPONSABLE: JUNIOR LINARES GARCIA
+    ESTADO_OPERACION: PROYECTO
+  events:
+    - http:
+        path: persona/listar
+        method: get
+        cors: true
+        documentation: 
+          summary: getPeople
+          description: Obtiene las personas del Api de StarWars
+          methodResponses:
+            - statusCode: 200
+              responseHeaders:
+                - name: "Content-Type"
+                  description: "Content Type header"
+                  schema:
+                    type: "string"
+              responseModels:
+                application/json: GenericResponse
+              responseBody:
+                description: Personas obtenidas
+            - statusCode: 500
+              responseBody:
+                description: Mensaje de error cuando se obtiene personas
+              responseModels:
+                application/json: ErrorResponse
+getPeopleBydId:
+  handler: controllers/PersonaController.listarPorId
+  description: Lista las personas del api SWAPI por el id
+  tags:
+    ENTORNO: DESARROLLO
+    PROYECTO: RETO
+    DOMINIO: INDRA
+    RESPONSABLE: JUNIOR LINARES GARCIA
+    ESTADO_OPERACION: PROYECTO
+  events:
+    - http:
+        path: persona/detalle/{id}
+        method: get
+        cors: true
+        documentation: 
+          summary: getPeopleBydId
+          description: Obtiene la persona según el id ingresado
+          pathParams:
+            - name: id
+              description: Id de la persona
+              schema:
+                type: integer
+          methodResponses:
+            - statusCode: 200
+              responseHeaders:
+                - name: "Content-Type"
+                  description: "Content Type header"
+                  schema:
+                    type: "string"
+              responseModels:
+                application/json: GenericResponse
+              responseBody:
+                description: Persona obtenida según el id
+            - statusCode: 404
+              responseBody:
+                description: Mensaje de error cuando no existe la persona con el id indicado
+              responseModels:
+                application/json: ErrorResponse
+            - statusCode: 500
+              responseBody:
+                description: Mensaje de error cuando se obtiene persona por id
+              responseModels:
+                application/json: ErrorResponse
+            
+          

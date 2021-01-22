@@ -1,0 +1,37 @@
+{
+  "name": "retotecnico",
+  "version": "1.0.0",
+  "description": "Reto técnico que consiste en integrar SWAPI API en lambdas y DynamoDb para el almacenamiento de la información",
+  "main": "handler.js",
+  "scripts": {
+    "deploy-dev": "sls offline start --stage DEV",
+    "deploy": "sls deploy --stage DEV",
+    "test": "jest"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "reto",
+    "técnico",
+    "SWAPI",
+    "DynamoDB"
+  ],
+  "author": "Junior Linares Garcia",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "serverless": "^2.19.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-openapi-documentation": "^0.4.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.829.0",
+    "aws-serverless-swagger-ui": "^1.0.1",
+    "axios": "^0.21.1",
+    "joi": "^17.3.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.32",
+    "serverless-dynamodb-local": "^0.2.39",
+    "uuid": "^8.3.2"
+  }
+}

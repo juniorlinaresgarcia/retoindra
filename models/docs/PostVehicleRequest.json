@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "JSON API Schema",
+    "description": "Schema para request de registro de vehículo",
+    "type": "object",
+    "properties": {
+        "nombre": {
+            "description": "nombre",
+            "type": "string"
+        }
+    }
+
+}

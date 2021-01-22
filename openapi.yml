@@ -1,0 +1,137 @@
+openapi: 3.0.0
+components:
+  schemas:
+    ErrorResponse:
+      title: JSON API Schema
+      description: Schema para mensajes de error
+      type: object
+      properties:
+        codMensaje:
+          type: integer
+        desMensaje:
+          type: string
+        datos:
+          type: object
+    GenericResponse:
+      title: JSON API Schema
+      description: Schema para mensaje de respuesta genérico
+      type: object
+      properties:
+        codMensaje:
+          type: integer
+        desMensaje:
+          type: string
+        datos:
+          type: object
+    PostVehicleRequest:
+      title: JSON API Schema
+      description: Schema para request de registro de vehículo
+      type: object
+      properties:
+        nombre:
+          description: nombre
+          type: string
+  securitySchemes: {}
+info:
+  title: Reto técnico Api
+  description: 'Api que consume SWAPI, registra y lista datos de DynamoDB'
+  version: '1'
+paths:
+  /persona/listar:
+    get:
+      operationId: getPeople
+      summary: getPeople
+      description: Obtiene las personas del Api de StarWars
+      responses:
+        '200':
+          description: Personas obtenidas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+          headers:
+            Content-Type:
+              description: Content Type header
+              schema:
+                type: string
+        '500':
+          description: Mensaje de error cuando se obtiene personas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  '/persona/detalle/{id}':
+    get:
+      operationId: getPeopleBydId
+      summary: getPeopleBydId
+      description: Obtiene la persona según el id ingresado
+      responses:
+        '200':
+          description: Persona obtenida según el id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+          headers:
+            Content-Type:
+              description: Content Type header
+              schema:
+                type: string
+        '404':
+          description: Mensaje de error cuando no existe la persona con el id indicado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Mensaje de error cuando se obtiene persona por id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /vehiculo/listar:
+    get:
+      operationId: getVehicles
+      summary: getVehicles
+      description: Obtiene los vehículos registrados en DynamoDB
+      responses:
+        '200':
+          description: Vehículos obtenidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+          headers:
+            Content-Type:
+              description: Content Type header
+              schema:
+                type: string
+        '500':
+          description: Mensaje de error cuando se obtiene persona por id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /vehiculo/registrar:
+    post:
+      operationId: registerVehicles
+      summary: registerVehicles
+      description: Registra un vehiculo en la base de datos DynamoDB
+      responses:
+        '200':
+          description: Registro exitoso de vehículo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+          headers:
+            Content-Type:
+              description: Content Type header
+              schema:
+                type: string
+        '500':
+          description: Mensaje de error cuando se obtiene persona por id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "JSON API Schema",
+    "description": "Schema para mensaje de respuesta genérico",
+    "type": "object",
+    "properties": {
+      "codMensaje": {
+        "type": "integer"
+      },
+      "desMensaje": {
+        "type": "string"
+      },
+      "datos": {
+        "type": "object"
+      }
+    },
+    "definitions": {    
+      "codMensaje": {
+        "description": "Código de mensaje",
+        "type": "object"
+      },
+      "desMensaje": {
+        "description": "Descripción del mensaje",
+        "type": "string"
+      },
+      "datos": {
+        "description": "Datos"
+      } 
+    }
+  }

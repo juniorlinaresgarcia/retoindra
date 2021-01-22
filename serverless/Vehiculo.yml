@@ -1,0 +1,70 @@
+getVehicles:
+  handler: controllers/VehiculoController.listar
+  description: Lista los vehiculos de Star Wars registrados en DynamoDB
+  tags:
+    ENTORNO: DESARROLLO
+    PROYECTO: RETO
+    DOMINIO: INDRA
+    RESPONSABLE: JUNIOR LINARES GARCIA
+    ESTADO_OPERACION: PROYECTO
+  events:
+    - http:
+        path: vehiculo/listar
+        method: get
+        cors: true
+        documentation: 
+          summary: getVehicles
+          description: Obtiene los vehículos registrados en DynamoDB
+          requestModels:
+            application/json: PostVehicleRequest
+          methodResponses:
+            - statusCode: 200
+              responseHeaders:
+                - name: "Content-Type"
+                  description: "Content Type header"
+                  schema:
+                    type: "string"
+              responseModels:
+                application/json: GenericResponse
+              responseBody:
+                description: Vehículos obtenidos
+            - statusCode: 500
+              responseBody:
+                description: Mensaje de error cuando se obtiene persona por id
+              responseModels:
+                application/json: ErrorResponse
+registerVehicles:
+  handler: controllers/VehiculoController.registrar
+  description: Registra vehiculos de Star Wars en DynamoDB
+  tags:
+    ENTORNO: DESARROLLO
+    PROYECTO: RETO
+    DOMINIO: INDRA
+    RESPONSABLE: JUNIOR LINARES GARCIA
+    ESTADO_OPERACION: PROYECTO
+  events:
+    - http:
+        path: vehiculo/registrar
+        method: post
+        cors: true
+        documentation: 
+          summary: registerVehicles
+          description: Registra un vehiculo en la base de datos DynamoDB
+          requestBody:
+            description: Información del vehículo
+          methodResponses:
+            - statusCode: 200
+              responseHeaders:
+                - name: "Content-Type"
+                  description: "Content Type header"
+                  schema:
+                    type: "string"
+              responseModels:
+                application/json: GenericResponse
+              responseBody:
+                description: Registro exitoso de vehículo
+            - statusCode: 500
+              responseBody:
+                description: Mensaje de error cuando se obtiene persona por id
+              responseModels:
+                application/json: ErrorResponse
