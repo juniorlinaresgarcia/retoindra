@@ -17,7 +17,7 @@ module.exports.listar = async (event, context, callback) => {
 }
 
 module.exports.listarPorId = async (event, context, callback) => {
-
+//comentario master 2
     try {
         console.log('event1',event);
         var data = await PersonaService.getPeopleById(event);
