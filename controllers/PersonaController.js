@@ -15,7 +15,7 @@ module.exports.listar = async (event, context, callback) => {
     }
     
 }
-
+//comentario 2
 module.exports.listarPorId = async (event, context, callback) => {
 
     try {
