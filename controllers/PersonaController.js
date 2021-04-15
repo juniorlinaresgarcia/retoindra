@@ -3,7 +3,7 @@ const PersonaService = require("../services/PersonaService");
 const Messages = require("../common/constants/messagesApi"); 
 
 module.exports.listar = async (event, context, callback) => {
-
+//comentario no deseado
     try {
         var data = await PersonaService.getPeople();
         //console.log('PersonaController->listar - data',data);
