@@ -1,7 +1,7 @@
 const AwsUtils = require("../common/helpers/AwsUtils");
 const PersonaService = require("../services/PersonaService");
 const Messages = require("../common/constants/messagesApi"); 
-
+//commit a pasar a master
 module.exports.listar = async (event, context, callback) => {
 
     try {
