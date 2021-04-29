@@ -1,7 +1,7 @@
 const AwsUtils = require("../common/helpers/AwsUtils");
 const PersonaService = require("../services/PersonaService");
 const Messages = require("../common/constants/messagesApi"); 
-//comentario master 1
+//commit a pasar a master
 module.exports.listar = async (event, context, callback) => {
 
     try {
@@ -15,7 +15,7 @@ module.exports.listar = async (event, context, callback) => {
     }
     
 }
-
+//comentario 2
 module.exports.listarPorId = async (event, context, callback) => {
 //comentario master 2
     try {
